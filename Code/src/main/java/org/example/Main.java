@@ -15,8 +15,11 @@ public class Main {
                 String[] plateau = input.nextLine().split(" ");
                 int x = Integer.parseInt(plateau[0]);
                 int y = Integer.parseInt(plateau[1]);
-                handler = new RoversHandler(x,y);
-                break;
+                if(x>0 && y>0) {
+                    handler = new RoversHandler(x, y);
+                    break;
+                }
+                handlerError();
             }
             catch (Exception e){
                 handlerError();
@@ -64,7 +67,7 @@ public class Main {
     }
 
     private  static void handlerError(){
-        System.out.println("Not a valid input, please enter in the format: x y, i.e: 5 5");
+        System.out.println("Not a valid input, please enter in the format: x y, i.e: 5 5, note both numbers must be larger than 0");
     }
 
 
